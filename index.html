@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        .rjp_shuru{ border:1px solid #787879;}
+        .keyboard{
+            position: absolute;
+            top: 33px;
+            left: 0;
+            padding: 10px;
+            box-shadow: 1px 1px 1px #000 ;
+            border: 1px solid rgb(20,130,208);
+            background-color: #fff;
+            display: none;
+            z-index: 30;
+        }
+        .i_button{
+            border:none;
+            height:40px;
+            width:50px;
+            font-size:14px;
+            vertical-align: middle;
+            font-family:"微软雅黑";
+            background-color: rgb(22, 145, 232);
+            color: #fff;
+        }
+        .dxxqh{
+            height: 84px;
+        }
+        .i_button:active{ background-color: rgb(24, 159, 255);}
+        .i_button_btn{ float:right; width:104px;}
+        .i_button_bs{ float:right; width:158px;}
+
+        .tog_sup,.tog_sub{
+            background-color: rgb(112, 209, 255);
+        }
+        input{
+            height: 24px;
+            font-size: 16px;
+        }
+    </style>
+    <script src="jquery-1.11.js"></script>
+    <script src="jq_rjp.js"></script>
+
+</head>
+<body>
+
+<span>
+H&#8323;O</span>
+
+<button class="add1">添加</button>
+<table class="table_w">
+    <tbody class="tbody_w">
+        <tr class="tr_w">
+            <td>
+                <div class="jq_rjp" style='position:relative'>
+                    <input type="text" class="rjp_shuru">
+                </div>
+            </td>
+        </tr>
+        <tr class="tr_w">
+            <td>
+                <div class="jq_rjp" style='position:relative'>
+                    <input type="text" class="rjp_shuru">
+                </div>
+            </td>
+        </tr>
+        <tr class="tr_w">
+            <td>
+                <div class="jq_rjp" style='position:relative'>
+                    <input type="text" class="rjp_shuru">
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    <script>
+        /* 注意： jq_rjp.js  有修改  */
+
+        //使用jqRjp的元素必须是 定位元素
+        $(".jq_rjp").jqRjp();  //$(".jq_rjp")可以使用别的元素，但必须是定位元素
+
+        //添加
+        $(".add1").click(function(){    //点击生成表格
+            $(".tbody_w").append("<tr class=\"tr_w\">\n" +
+                "            <td>\n" +
+                "                <div class=\"jq_rjp\" style='position:relative'>\n" +
+                "                    <input type=\"text\" class=\"rjp_shuru\">\n" +
+                "                </div>\n" +
+                "            </td>\n" +
+                "        </tr>");
+            //console.log($(".jq_rjp"));   //所有软键盘
+            //console.log($(".jq_rjp").last()); //最后一个软键盘，我们需要让他实现软键盘
+            $(".tbody_w .jq_rjp").last().jqRjp();
+
+        });
+    </script>
+</body>
+</html>
